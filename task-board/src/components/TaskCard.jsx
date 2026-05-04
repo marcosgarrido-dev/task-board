@@ -1,10 +1,21 @@
-function TaskCard({ task, type, tasks, setTasks }) {
+function TaskCard({ task, type, tasks, setTasks, isEditing }) {
+  const updateTaskText = (newText) => {
+    const updated = tasks[type].map((item) => {
+      if (item.id === task.id) {
+        return { ...item, text: newText }
+      }
+
+      return item
+    })
+
+    setTasks({
+      ...tasks,
+      [type]: updated
+    })
+  }
 
   const moveTask = (newType) => {
-    // eliminar de la columna actual
     const updatedCurrent = tasks[type].filter((item) => item.id !== task.id)
-
-    // añadir a la nueva columna
     const updatedTarget = [...tasks[newType], task]
 
     setTasks({
@@ -18,40 +29,50 @@ function TaskCard({ task, type, tasks, setTasks }) {
     const updated = tasks[type].filter((item) => item.id !== task.id)
 
     setTasks({
-        ...tasks,
-        [type]: updated
+      ...tasks,
+      [type]: updated
     })
   }
 
   return (
     <div className="task-card">
+      {isEditing ? (
+        <input
+          className="edit-input"
+          value={task.text}
+          onChange={(e) => updateTaskText(e.target.value)}
+        />
+      ) : (
         <p>{task.text}</p>
+      )}
 
-        <div className="task-buttons">
+      <div className="task-buttons">
         <div className="left-zone">
-            {type === "doing" && (
-            <button onClick={() => moveTask("todo")}>←</button>
-            )}
+          {type === "doing" && (
+            <button className="icon-btn" onClick={() => moveTask("todo")}>←</button>
+          )}
 
-            {type === "done" && (
-            <button onClick={() => moveTask("doing")}>←</button>
-            )}
+          {type === "done" && (
+            <button className="icon-btn" onClick={() => moveTask("doing")}>←</button>
+          )}
         </div>
 
         <div className="center-zone">
-            <button onClick={handleDelete}>Eliminar</button>
+          <button className="delete-btn" onClick={handleDelete}>
+            Eliminar
+          </button>
         </div>
 
         <div className="right-zone">
-            {type === "todo" && (
-            <button onClick={() => moveTask("doing")}>→</button>
-            )}
+          {type === "todo" && (
+            <button className="icon-btn" onClick={() => moveTask("doing")}>→</button>
+          )}
 
-            {type === "doing" && (
-            <button onClick={() => moveTask("done")}>→</button>
-            )}
+          {type === "doing" && (
+            <button className="icon-btn" onClick={() => moveTask("done")}>→</button>
+          )}
         </div>
-        </div>
+      </div>
     </div>
   )
 }

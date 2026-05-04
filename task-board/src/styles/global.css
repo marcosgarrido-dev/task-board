@@ -1,104 +1,268 @@
+/* ============================= */
+/* RESET GLOBAL */
+/* ============================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Background styles */
+/* Estilo base de la aplicación */
 body {
   font-family: Arial, sans-serif;
-  background-color: #000000;
-  color: #333;
+  background-color: #eef1f5;
+  color: #1f2937;
 }
 
+/* Botones generales */
 button {
   cursor: pointer;
+  font-family: inherit;
 }
 
+/* Inputs generales */
 input {
+  font-family: inherit;
   outline: none;
 }
 
-/* Board styles */
+
+/* ============================= */
+/* CONTENEDOR PRINCIPAL */
+/* ============================= */
+
 .app {
-  padding: 30px;
+  min-height: 100vh;
+  padding: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
+/* Título principal */
 .app h1 {
-  margin-bottom: 30px;
+  margin-bottom: 24px;
+  font-size: 32px;
+  color: #000000;
+  text-align: center;
 }
+
+
+/* ============================= */
+/* TABLERO */
+/* ============================= */
 
 .board {
   display: flex;
-  gap: 20px;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-/* Column styles */
+
+/* ============================= */
+/* COLUMNAS */
+/* ============================= */
+
 .column {
-  background-color: rgb(135, 255, 209);
-  border-radius: 12px;
-  padding: 20px;
-  min-width: 250px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative; /* Permite colocar el botón de edición dentro de la columna */
+  width: 320px;
+  min-height: 260px;
+  background-color: #ffffff;
+  border: 1px solid #d7dce3;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
 }
 
-.columnTitle {
-  color: rgb(0, 0, 0);
+/* Botón de edición de columna */
+.column-edit-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 9px;
+  background-color: #e5e7eb;
+  color: #111827;
+  font-size: 13px;
 }
 
-/* Task Card styles */
+/* Hover botón de edición de columna */
+.column-edit-btn:hover {
+  background-color: #d1d5db;
+}
+
+/* Título de columna */
+.column h2 {
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+/* Texto secundario (contador tareas) */
+.column > p {
+  font-size: 13px;
+  color: #686868;
+  margin-bottom: 16px;
+}
+
+
+/* ============================= */
+/* LISTA DE TAREAS */
+/* ============================= */
+
 .task-list {
-  margin: 16px 0;
+  margin-bottom: 18px;
 }
+
+
+/* ============================= */
+/* TARJETA DE TAREA */
+/* ============================= */
 
 .task-card {
-  background-color: #f4f5f7;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #2563eb;
   border-radius: 10px;
-  padding: 12px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
+  padding: 14px;
+  margin-bottom: 12px;
 }
 
+/* Texto de la tarea */
 .task-card p {
   font-size: 14px;
+  line-height: 1.4;
 }
 
-/* Task Card Delete Button styles */
-.task-card button {
-  margin-top: 8px;
-  border: none;
-  background-color: #000000;
-  padding: 6px 10px;
+
+/* ============================= */
+/* INPUT DE EDICIÓN */
+/* ============================= */
+
+.edit-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
   border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #111827;
+  background-color: white;
 }
 
-/* Task Card Move Button styles */
+/* Estado focus del input de edición */
+.edit-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+
+/* ============================= */
+/* BOTONES DE TAREA */
+/* ============================= */
+
 .task-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
+/* Zona izquierda (botón ←) */
 .left-zone {
   display: flex;
   justify-content: flex-start;
 }
 
+/* Zona central (botón eliminar) */
 .center-zone {
   display: flex;
   justify-content: center;
 }
 
+/* Zona derecha (botón →) */
 .right-zone {
   display: flex;
   justify-content: flex-end;
 }
 
+/* Botones dentro de tareas */
 .task-buttons button {
   border: none;
   padding: 6px 10px;
-  border-radius: 6px;
-  background-color: #000;
+  border-radius: 7px;
+  background-color: #e5e7eb;
+  color: #111827;
+  font-size: 13px;
+}
+
+/* Delete button (destructive action) */
+.task-buttons .delete-btn {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Hover state for delete button */
+.task-buttons .delete-btn:hover {
+  background-color: #fecaca;
+}
+
+/* Hover de botones */
+.task-buttons button:hover {
+  background-color: #d1d5db;
+}
+
+
+/* ============================= */
+/* CREAR NUEVA TAREA */
+/* ============================= */
+
+.add-task {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* Input nueva tarea */
+.add-task input {
+  flex: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 9px 10px;
+  color: #111827;
+  font-size: 14px;
+  background-color: white;
+}
+
+/* Botón añadir */
+.add-task button {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 12px;
+  background-color: #2563eb;
   color: white;
+  font-size: 14px;
+}
+
+/* Hover botón añadir */
+.add-task button:hover {
+  background-color: #1d4ed8;
+}
+
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+  .board {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 100%;
+    max-width: 420px;
+  }
 }

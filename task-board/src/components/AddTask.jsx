@@ -20,7 +20,7 @@ function AddTask({ type, tasks, setTasks }) {
   }
 
   return (
-    <div>
+    <div className="add-task">
       <input
         value={text}
         onChange={(e) => setText(e.target.value)}
