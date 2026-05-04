@@ -30,7 +30,9 @@ function Column({ title, type, tasks, setTasks, editingColumn, setEditingColumn 
         ))}
       </div>
 
-      <AddTask type={type} tasks={tasks} setTasks={setTasks} />
+      {type === "todo" && (
+        <AddTask type={type} tasks={tasks} setTasks={setTasks} />
+      )}
     </div>
   )
 }
