@@ -22,8 +22,30 @@ It allows users to create, move, edit, delete and persist tasks using LocalStora
 - LocalStorage
 - Git / GitHub
 
-## Project Structure
+## How to run the project
+In terminal run:
+npm install
+npm run dev
 
+
+## What I learned
+React component structure
+Props and state management
+Updating arrays immutably
+Conditional rendering
+Custom hooks
+LocalStorage persistence
+Basic responsive design
+Git and GitHub workflow
+
+## Future improvements
+Drag and drop support
+Task priority labels
+Due dates
+Search and filters
+Dark mode
+
+## Project Structure
 ```txt
 src/
 ├── components/
