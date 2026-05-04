@@ -10,7 +10,7 @@ function Column({ title, type, tasks, setTasks }) {
 
       <div className="task-list">
         {tasks[type].map((task) => (
-          <TaskCard key={task.id} task={task} />
+          <TaskCard key={task.id} task={task} type={type} tasks={tasks} setTasks={setTasks} />
         ))}
       </div>
 

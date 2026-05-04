@@ -62,3 +62,12 @@ input {
 .task-card p {
   font-size: 14px;
 }
+
+/* Task Card Delete Button styles */
+.task-card button {
+  margin-top: 8px;
+  border: none;
+  background-color: #000000;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
