@@ -35,9 +35,30 @@ input {
 
 /* Column styles */
 .column {
-  background-color: white;
+  background-color: rgb(135, 255, 209);
   border-radius: 12px;
   padding: 20px;
   min-width: 250px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.columnTitle {
+  color: rgb(0, 0, 0);
+}
+
+/* Task Card styles */
+.task-list {
+  margin: 16px 0;
+}
+
+.task-card {
+  background-color: #f4f5f7;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.task-card p {
+  font-size: 14px;
 }
