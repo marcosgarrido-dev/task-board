@@ -71,3 +71,34 @@ input {
   padding: 6px 10px;
   border-radius: 8px;
 }
+
+/* Task Card Move Button styles */
+.task-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.left-zone {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.center-zone {
+  display: flex;
+  justify-content: center;
+}
+
+.right-zone {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-buttons button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: #000;
+  color: white;
+}
