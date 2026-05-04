@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* Background styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #000000;
@@ -16,4 +17,27 @@ button {
 
 input {
   outline: none;
+}
+
+/* Board styles */
+.app {
+  padding: 30px;
+}
+
+.app h1 {
+  margin-bottom: 30px;
+}
+
+.board {
+  display: flex;
+  gap: 20px;
+}
+
+/* Column styles */
+.column {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 250px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }

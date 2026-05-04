@@ -6,27 +6,15 @@ function App() {
   const [tasks, setTasks] = useState(initialTasks)
 
   return (
-    <div>
-      <h1>Task Board</h1>
+    <div className="app">
+    <h1>Task Board</h1>
 
-      <Column
-        title="To Do"
-        type="todo"
-        tasks={tasks}
-      />
-
-      <Column
-        title="Doing"
-        type="doing"
-        tasks={tasks}
-      />
-
-      <Column
-        title="Done"
-        type="done"
-        tasks={tasks}
-      />
+    <div className="board">
+      <Column title="To Do" type="todo" tasks={tasks} setTasks={setTasks}/>
+      <Column title="Doing" type="doing" tasks={tasks} setTasks={setTasks}/>
+      <Column title="Done" type="done" tasks={tasks} setTasks={setTasks}/>
     </div>
+  </div>
   )
 }
 
