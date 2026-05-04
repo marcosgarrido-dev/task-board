@@ -1,9 +1,10 @@
-import { useState } from "react"
+// import { useState } from "react"
+import { useLocalStorage } from "./hooks/useLocalStorage"
 import { initialTasks } from "./data/initialTasks"
 import Column from "./components/Column"
 
 function App() {
-  const [tasks, setTasks] = useState(initialTasks)
+  const [tasks, setTasks] = useLocalStorage("tasks", initialTasks)
 
   return (
     <div className="app">
